@@ -1,0 +1,22 @@
+# Data transformation from a Survey Monkey Q/A dataset that is 198 rows long and 100 columns wide. Transforming it to a long dataset that turns out to be 17028 rows long and 13 columns wide. Through use of:
+  pandas : .melt(), .merge(), .read_excel
+  os : .getcwd()
+  
+# Checks were ran during pd.merge() to ensure the join worked as expected. Not adding additional rows through 2 print() statements.
+  1) Checking the original data
+  2) Checking the newly merged data
+  3) Comparing rows through len(), ensuring they are the same length.
+  
+# Additional methods used:
+  .notna() - Retrieving all answered questions, ignoring unanswered questions
+  .copy() - Standard operating procejure, ensures having to upload large datasets once, allowing a faster rollback if I mess up
+  .drop()  - Using lists to drop columns of various datasets
+  list(dataset.columns)[:8] - Created variables during the melt process
+  .columns - Checking the columns of the dataset to find which need to be removed, stay pivoted or unpivot
+  .groupby() - Grouping by single columns and utilizing a list for multiple columns
+  .nunique() - Retrieve unique answers, so there isn't double counting of respondents
+  .reset_index() - Ease of viewing
+  .rename() - Renaming of columns using a dictionary
+  , inplace=True) - Make the changes stick, can be used instead of creating a new variable
+  .fillna() - Filling "Not a Number" (NaN) with 0, allowing for future calculations to be done on the column
+  .to_excel() - Once finished, outputing the dataframe to a .xlsx Excel file
